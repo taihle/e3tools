@@ -1,0 +1,1100 @@
+<xs:schema version="1.0" 
+targetNamespace="http://api.allentek.com/" 
+xmlns:api="http://api.allentek.com/" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <!--
+  <xs:import schemaLocation="ns0.xsd"/>
+  <xs:import namespace="http://api.allentek.com/survey" schemaLocation="survey.xsd"/>
+  <xs:import namespace="http://api.allentek.com/rental" schemaLocation="rental.xsd"/>
+  -->
+  
+  <!-- NS0 -->  
+  <xs:element name="productArrangementContext" type="api:productArrangementContext"/>
+  <xs:element name="rentalServiceEventSubType" type="api:rentalServiceEventSubType"/>
+  <xs:element name="rentalServiceEventType" type="api:rentalServiceEventType"/>
+  <xs:element name="idNamePair" type="api:idNamePair"/>
+  <xs:element name="rentalAuditState" type="api:rentalAuditState"/>
+  <xs:element name="videoType" type="api:videoType"/>
+  <xs:element name="rebootTask" type="api:rebootTask"/>
+  <xs:element name="longList" type="api:longList"/>
+  <xs:element name="longSet" type="api:longSet"/>
+  <xs:element name="sessionVar" type="api:sessionVar"/>
+  <xs:element name="videoNode" type="api:videoNode"/>
+  <xs:element name="rebootEventType" type="api:rebootEventType"/>
+  <xs:element name="prescribedContentType" type="api:prescribedContentType"/>
+  <xs:element name="systemUsageType" type="api:systemUsageType"/>
+  <xs:element name="billingSummaryDO" type="api:billingSummaryDO"/>
+ 
+  <xs:simpleType name="productArrangementContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneTouchTV"/>
+      <xs:enumeration value="OneTouchPhone"/>
+      <xs:enumeration value="OneTouchPremium"/>
+      <xs:enumeration value="OneTouchRentalViewCurrentServices"/>
+    </xs:restriction>
+  </xs:simpleType> 
+  <xs:simpleType name="rentalServiceEventSubType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Patient"/>
+      <xs:enumeration value="Csr"/>
+      <xs:enumeration value="Discharge"/>
+      <xs:enumeration value="Transfer"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="rentalServiceEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="START"/>
+      <xs:enumeration value="STOP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="idNamePair">
+    <xs:sequence>
+      <xs:element name="id" type="xs:anyType" minOccurs="0"/>
+      <xs:element name="name" type="xs:anyType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="rentalAuditState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Overbilled"/>
+      <xs:enumeration value="Underbilled"/>
+      <xs:enumeration value="Correct"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="videoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Health"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Premium"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="rebootTask">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="jobName" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="triggerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="nextFireTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="calendarName" type="xs:string" minOccurs="0"/>
+      <xs:element name="nursingUnitId" type="xs:long" minOccurs="0"/>
+      <xs:element name="alertEmail" type="xs:string" minOccurs="0"/>
+      <xs:element name="timeZone" type="xs:string" minOccurs="0"/>
+      <xs:element name="state" type="xs:string" minOccurs="0"/>
+      <xs:element name="triggerId" type="xs:long" minOccurs="1"/>
+      <xs:element name="cronExpression" type="xs:string" minOccurs="0"/>
+      <xs:element name="createdBy" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastModifiedBy" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastUpdate" type="xs:string" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="longList">
+    <xs:sequence>
+      <xs:element name="list" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="longSet">
+    <xs:sequence>
+      <xs:element name="set" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="sessionVar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CurrentHospital"/>
+      <xs:enumeration value="PageHistory"/>
+      <xs:enumeration value="MovieWatch"/>
+      <xs:enumeration value="TVWatch"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="videoNode">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="data" type="xs:string" minOccurs="0"/>
+      <xs:element name="attr" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="1" type="xs:string"/>
+                  <xs:element name="value" minOccurs="1" type="xs:anyType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="children" type="api:videoNode" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="rebootEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MANUAL"/>
+      <xs:enumeration value="SCHEDULED"/>
+      <xs:enumeration value="UNEXPECTED"/>
+      <xs:enumeration value="UNKNOWN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="prescribedContentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All"/>
+      <xs:enumeration value="Survey"/>
+      <xs:enumeration value="Video"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="systemUsageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Audio"/>
+      <xs:enumeration value="BasicTV"/>
+      <xs:enumeration value="HealthVideo"/>
+      <xs:enumeration value="PremiumMovie"/>
+      <xs:enumeration value="Internet"/>
+      <xs:enumeration value="PremiumTV"/>
+      <xs:enumeration value="OtherVideo"/>
+      <xs:enumeration value="ScreenSaver"/>
+      <xs:enumeration value="System"/>
+      <xs:enumeration value="Debug"/>
+      <xs:enumeration value="EdRx"/>
+      <xs:enumeration value="Patient"/>
+      <xs:enumeration value="Survey"/>
+      <xs:enumeration value="VigoPageHit"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="billingSummaryDO">
+    <xs:sequence>
+      <xs:element name="onDemandMovieCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="totalMovieWatchers" type="xs:int" minOccurs="0"/>
+      <xs:element name="movieFee" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="occupiedPercentage" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="stbCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="internetFee" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="audioMinutes" type="xs:int" minOccurs="0"/>
+      <xs:element name="channelMovieCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="recordCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="audioFee" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="day" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="patientCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="internetMinutes" type="xs:int" minOccurs="0"/>
+      <xs:element name="totalCharges" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- API -->  
+  <xs:element name="queryResults" type="api:queryResults"/>
+  <xs:element name="WSAccount" type="api:WSAccount"/>
+  <xs:element name="WSBillingSummary" type="api:WSBillingSummary"/>
+  <xs:element name="WSChannel" type="api:WSChannel"/>
+  <xs:element name="WSContent" type="api:WSContent"/>
+  <xs:element name="WSDailyChargeLineItem" type="api:WSDailyChargeLineItem"/>
+  <xs:element name="WSDetailedSystemUsage" type="api:WSDetailedSystemUsage"/>
+  <xs:element name="WSDynamicParameter" type="api:WSDynamicParameter"/>
+  <xs:element name="WSHL7Transaction" type="api:WSHL7Transaction"/>
+  <xs:element name="WSHospital" type="api:WSHospital"/>
+  <xs:element name="WSInstalledSTB" type="api:WSInstalledSTB"/>
+  <xs:element name="WSNotifications" type="api:WSNotifications"/>
+  <xs:element name="WSNursingUnit" type="api:WSNursingUnit"/>
+  <xs:element name="WSPatientAccessEvent" type="api:WSPatientAccessEvent"/>
+  <xs:element name="WSPatientLocationHistory" type="api:WSPatientLocationHistory"/>
+  <xs:element name="WSPhysicalAddress" type="api:WSPhysicalAddress"/>
+  <xs:element name="WSPrescribedContent" type="api:WSPrescribedContent"/>
+  <xs:element name="WSPrescribedContentConfig" type="api:WSPrescribedContentConfig"/>
+  <xs:element name="WSSessionInfo" type="api:WSSessionInfo"/>
+  <xs:element name="WSSystemUsageSummary" type="api:WSSystemUsageSummary"/>
+  <xs:element name="WSTVChannel" type="api:WSTVChannel"/>
+  <xs:element name="WSTVChannelType" type="api:WSTVChannelType"/>
+  <xs:element name="WSTimeResponse" type="api:WSTimeResponse"/>
+  <xs:element name="WSUser" type="api:WSUser"/>
+  <xs:element name="WSVideoServer" type="api:WSVideoServer"/>
+  <xs:simpleType name="clientEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start"/>
+      <xs:enumeration value="Update"/>
+      <xs:enumeration value="Stop"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="clientUsageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Video"/>
+      <xs:enumeration value="TV"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="columnType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Label"/>
+      <xs:enumeration value="Money"/>
+      <xs:enumeration value="Integer"/>
+      <xs:enumeration value="Decimal"/>
+      <xs:enumeration value="Percentage"/>
+      <xs:enumeration value="DateTime"/>
+      <xs:enumeration value="Date"/>
+      <xs:enumeration value="YesNo"/>
+      <xs:enumeration value="MinsToSecs"/>
+      <xs:enumeration value="SecsToMins"/>
+      <xs:enumeration value="DateOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="myInboxType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Inbox"/>
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="Completed"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="queryFilter">
+    <xs:sequence>
+      <xs:element name="filterName" type="xs:string" minOccurs="0"/>
+      <xs:element name="filterValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryResultColumn">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="api:columnType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryResults">
+    <xs:sequence>
+      <xs:element name="total" type="xs:int" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Total number of pages]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="page" type="xs:int" minOccurs="1"/>
+      <xs:element name="rows" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="records" type="xs:int" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Total count(rows) returned from the query]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="limit" type="xs:int" minOccurs="1"/>
+      <xs:element name="columns" type="api:queryResultColumn" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="reportTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="filters" type="api:queryFilter" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="filename" type="xs:string" minOccurs="0"/>
+      <xs:element name="columnWidths" type="xs:float" minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[This returns the float array representing the table column widths]]>
+<![CDATA[in percent where 1 is 100%]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSAccount">
+    <xs:sequence>
+      <xs:element name="serviceEnabled" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="patientStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="admitDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="nursingUnit" type="api:WSNursingUnit" minOccurs="0"/>
+      <xs:element name="patientAccountId" type="xs:long" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="dischargeDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="accountPatient" type="api:WSPatient" minOccurs="0"/>
+      <xs:element name="effectiveSTB" type="api:WSInstalledSTB" minOccurs="0"/>
+      <xs:element name="accountSTB" type="api:WSInstalledSTB" minOccurs="0"/>
+      <xs:element name="allowSTBAssignment" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="allowCash" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="activeProducts" type="api:WSRentalProduct" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSBillingSummary">
+    <xs:complexContent>
+      <xs:extension base="api:billingSummaryDO">
+        <xs:sequence>
+          <xs:element name="vigoClientCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WSCareInfo">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="doctorName" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="nurseName" type="xs:string" minOccurs="0"/>
+      <xs:element name="nurse2Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="safetyAlerts" type="api:WSSafetyAlert" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="activities" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSChannel">
+    <xs:sequence>
+      <xs:element name="enabledForViewing" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="alias" type="xs:string" minOccurs="0"/>
+      <xs:element name="category" type="xs:string" minOccurs="0"/>
+      <xs:element name="channelNumber" type="xs:int" minOccurs="1"/>
+      <xs:element name="channelType" type="api:WSTVChannelType" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="logTVChannel" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="majorChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="rfChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="subChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="tvLogo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSClientUsageState">
+    <xs:sequence>
+      <xs:element name="startTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="contentId" type="xs:long" minOccurs="1"/>
+      <xs:element name="currentPosition" type="xs:int" minOccurs="0"/>
+      <xs:element name="maxPosition" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSContent">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[A container for content.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="content" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[get the content]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSContentSchedule">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="author" type="api:WSUser" minOccurs="0"/>
+      <xs:element name="contentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="diagnosisCodes" type="xs:string" minOccurs="0"/>
+      <xs:element name="delayHours" type="xs:double" minOccurs="1"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:element name="adtBased" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="generateVrx" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="onAdmit" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="onDiagnosisCode" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="onTransfer" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="active" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="survey" type="api:WSSurvey" minOccurs="0"/>
+      <xs:element name="videos" type="api:WSVideo" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="nursingUnits" type="api:WSNursingUnit" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSDailyChargeLineItem">
+    <xs:sequence>
+      <xs:element name="billingMethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="entitlementSource" type="xs:string" minOccurs="0"/>
+      <xs:element name="amount" type="xs:double" minOccurs="1"/>
+      <xs:element name="chargeDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="productName" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSDetailedSystemUsage">
+    <xs:sequence>
+      <xs:element name="availableDuration" type="xs:int" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="category" type="xs:string" minOccurs="0"/>
+      <xs:element name="durationSeconds" type="xs:int" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="eventTimestamp" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="accountId" type="xs:long" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="completed" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="percentCompleted" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSDynamicParameter">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSHL7Transaction">
+    <xs:sequence>
+      <xs:element name="transactionDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="processedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="admitDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="eventTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="dischargedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="nursingUnit" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSHospital">
+    <xs:sequence>
+      <xs:element name="abbreviation" type="xs:string" minOccurs="0"/>
+      <xs:element name="centralBillingHospitalID" type="xs:long" minOccurs="1"/>
+      <xs:element name="hasADTInterface" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="hospitalDisabled" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="physicalAddress" type="api:WSPhysicalAddress" minOccurs="0"/>
+      <xs:element name="timeZone" type="xs:string" minOccurs="0"/>
+      <xs:element name="nursingUnits" type="api:WSNursingUnit" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSInstalledSTB">
+    <xs:sequence>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="tvType" type="xs:string" minOccurs="0"/>
+      <xs:element name="tvTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospital" type="xs:string" minOccurs="0"/>
+      <xs:element name="nursingUnit" type="xs:string" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="switchPort" type="xs:string" minOccurs="0"/>
+      <xs:element name="dns" type="xs:string" minOccurs="0"/>
+      <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="stbType" type="xs:string" minOccurs="0"/>
+      <xs:element name="adtBed" type="xs:string" minOccurs="0"/>
+      <xs:element name="adtRoom" type="xs:string" minOccurs="0"/>
+      <xs:element name="disabled" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="patientInHospital" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="lastBeat" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="patientAccountId" type="xs:long" minOccurs="0"/>
+      <xs:element name="stbAccountId" type="xs:long" minOccurs="0"/>
+      <xs:element name="useOutboundConnect" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="clientVersion" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSInstalledSTBType">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSNotifications">
+    <xs:sequence>
+      <xs:element name="serverMinDelay" type="xs:int" minOccurs="1"/>
+      <xs:element name="pollDelay" type="xs:int" minOccurs="1"/>
+      <xs:element name="notifications" type="api:WSStbCommand" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="prescribedContentConfig" type="api:WSPrescribedContentConfig" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSNursingUnit">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSOccupancy">
+    <xs:sequence>
+      <xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="0"/>
+      <xs:element name="patientCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="stbCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="wardId" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPatient">
+    <xs:sequence>
+      <xs:element name="admitDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="adtAccountNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="assignedValidRoomBed" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="adtMedicalRecordNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="dischargedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="fullName" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastHL7TransDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="lastLocation" type="api:WSInstalledSTB" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+      <xs:element name="patientStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="patientStatusDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="diagnosisCodes" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPatientAccessEvent">
+    <xs:sequence>
+      <xs:element name="accessingUserId" type="xs:long" minOccurs="1"/>
+      <xs:element name="accessingUserName" type="xs:string" minOccurs="0"/>
+      <xs:element name="accessType" type="xs:string" minOccurs="0"/>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="adtMedicalRecordNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="app" type="xs:string" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dns" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="patientHospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="patientId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPatientLocationHistory">
+    <xs:sequence>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="mostRecent" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="stb" type="api:WSInstalledSTB" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPhysicalAddress">
+    <xs:sequence>
+      <xs:element name="address1" type="xs:string" minOccurs="0"/>
+      <xs:element name="address2" type="xs:string" minOccurs="0"/>
+      <xs:element name="country" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="taxRate" type="xs:double" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPingResponse">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="result" type="xs:boolean" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPrescribedContent">
+    <xs:sequence>
+      <xs:element name="contentDisplayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="contentTypeDisplayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="contentIdentity" type="xs:long" minOccurs="1"/>
+      <xs:element name="pcIdentity" type="xs:long" minOccurs="1"/>
+      <xs:element name="notificationLevel" type="xs:int" minOccurs="1"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="expiration" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="immediateShown" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="dateCompleted" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="prescribedWard" type="api:WSNursingUnit" minOccurs="0"/>
+      <xs:element name="percentComplete" type="xs:int" minOccurs="1"/>
+      <xs:element name="assignedTo" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="api:WSAccount" minOccurs="0"/>
+      <xs:element name="patientStatus" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSPrescribedContentConfig">
+    <xs:sequence>
+      <xs:element name="notificationInterval" type="xs:int" minOccurs="1"/>
+      <xs:element name="startHour" type="xs:int" minOccurs="1"/>
+      <xs:element name="endHour" type="xs:int" minOccurs="1"/>
+      <xs:element name="endMin" type="xs:int" minOccurs="1"/>
+      <xs:element name="startMin" type="xs:int" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSafetyAlert">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="1"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSessionInfo">
+    <xs:sequence>
+      <xs:element name="currentHospital" type="api:WSHospital" minOccurs="0"/>
+      <xs:element name="pageHistory" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="currentPage" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSStbCommand">
+    <xs:sequence>
+      <xs:element name="commandType" type="xs:string" minOccurs="0"/>
+      <xs:element name="scheduledDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="completedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="stbId" type="xs:long" minOccurs="1"/>
+      <xs:element name="userId" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSystemUsageSummary">
+    <xs:sequence>
+      <xs:element name="category" type="api:systemUsageType" minOccurs="0"/>
+      <xs:element name="usageCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="totalDuration" type="xs:long" minOccurs="0"/>
+      <xs:element name="distinctPatients" type="xs:int" minOccurs="0"/>
+      <xs:element name="distinctStbs" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSTVChannel">
+    <xs:sequence>
+      <xs:element name="alias" type="xs:string" minOccurs="0"/>
+      <xs:element name="category" type="xs:string" minOccurs="0"/>
+      <xs:element name="channelNumber" type="xs:int" minOccurs="1"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="logTVChannel" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="majorChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="rfChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="subChannel" type="xs:int" minOccurs="0"/>
+      <xs:element name="tvLogo" type="xs:string" minOccurs="0"/>
+      <xs:element name="channelType" type="api:WSTVChannelType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSTVChannelType">
+    <xs:sequence>
+      <xs:element name="purchaseRequired" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSTimeResponse">
+    <xs:sequence>
+      <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="timeZoneOffset" type="xs:string" minOccurs="0"/>
+      <xs:element name="timeZoneName" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSTvType">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSUsageType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSUser">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="grantedAuthorities" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="hospital" type="api:WSHospital" minOccurs="0"/>
+      <xs:element name="session" type="api:WSSessionInfo" minOccurs="0"/>
+      <xs:element name="rememberMe" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSVideo">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="published" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="runtime" type="xs:int" minOccurs="0"/>
+      <xs:element name="parentName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSVideoServer">
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="0"/>
+      <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+      <xs:element name="validAllSTBTypes" type="xs:boolean" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSVideoSummary">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="usageCount" type="xs:int" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <!-- ADMIN -->
+  <xs:element name="WSStbEvent" type="api:WSStbEvent"/>
+  <xs:element name="WSStbEventDetails" type="api:WSStbEventDetails"/>
+  <xs:simpleType name="cacheType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OfflineCache"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WSRebootEvent">
+    <xs:complexContent>
+      <xs:extension base="api:WSStbEvent">
+        <xs:sequence>
+          <xs:element name="rebootType" type="api:rebootEventType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WSRebootSummary">
+    <xs:sequence>
+      <xs:element name="hospitalName" type="xs:string" minOccurs="0"/>
+      <xs:element name="installedBeds" type="xs:int" minOccurs="0"/>
+      <xs:element name="numberBedsOccupied" type="xs:int" minOccurs="0"/>
+      <xs:element name="numberReboots" type="xs:int" minOccurs="0"/>
+      <xs:element name="uniqueBedsRebooted" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSStbEvent">
+    <xs:sequence>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="category" type="xs:string" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="eventName" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastUpdate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="result" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="stbId" type="xs:long" minOccurs="0"/>
+      <xs:element name="stbTimestamp" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="additionalInfo" type="api:WSStbEventDetails" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="wardName" type="xs:string" minOccurs="0"/>
+      <xs:element name="userId" type="xs:long" minOccurs="0"/>
+      <xs:element name="csrFullName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSStbEventDetails">
+    <xs:sequence>
+      <xs:element name="eventDetailKey" type="xs:string" minOccurs="0"/>
+      <xs:element name="eventDetailValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- RENTAL -->
+  <xs:element name="WSAmount" type="api:WSAmount"/>
+  <xs:element name="WSAuthorizedRoom" type="api:WSAuthorizedRoom"/>
+  <xs:element name="WSCashCollection" type="api:WSCashCollection"/>
+  <xs:element name="WSDisplayConfigElement" type="api:WSDisplayConfigElement"/>
+  <xs:element name="WSImageType" type="api:WSImageType"/>
+  <xs:element name="WSProductArrangement" type="api:WSProductArrangement"/>
+  <xs:element name="WSProductArrangementContext" type="api:WSProductArrangementContext"/>
+  <xs:element name="WSRentalProduct" type="api:WSRentalProduct"/>
+  <xs:element name="WSRentalProductType" type="api:WSRentalProductType"/>
+  <xs:element name="WSRentalServiceEvent" type="api:WSRentalServiceEvent"/>
+  <xs:element name="WSRentalTransaction" type="api:WSRentalTransaction"/>
+  <xs:element name="WSRentalTransactionSummary" type="api:WSRentalTransactionSummary"/>
+  <xs:element name="WSRentalTransactionSummaryGroupBy" type="api:WSRentalTransactionSummaryGroupBy"/>
+  <xs:element name="WSRentalTransactionType" type="api:WSRentalTransactionType"/>
+  <xs:element name="WSServiceAuditEvent" type="api:WSServiceAuditEvent"/>
+  <xs:element name="WSServiceStatus" type="api:WSServiceStatus"/>
+  <xs:element name="WSSupportedCurrency" type="api:WSSupportedCurrency"/>  
+  
+  <xs:complexType name="WSAmount">
+    <xs:sequence>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSAuthorizedRoom">
+    <xs:sequence>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ward" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="productName" type="xs:string" minOccurs="0"/>
+      <xs:element name="amount" type="xs:string" minOccurs="0"/>
+      <xs:element name="billingType" type="xs:string" minOccurs="0"/>
+      <xs:element name="source" type="xs:string" minOccurs="0"/>
+      <xs:element name="productType" type="xs:string" minOccurs="0"/>
+      <xs:element name="csr" type="xs:string" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:int" minOccurs="1"/>
+      <xs:element name="account" type="api:WSAccount" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSCashCollection">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="accountType" type="xs:string" minOccurs="0"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSDisplayConfigElement">
+    <xs:sequence>
+      <xs:element name="quantity" type="xs:int" minOccurs="1"/>
+      <xs:element name="rentalProductId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSDisplayConfigElements"/>
+  <xs:complexType name="WSFreeRental">
+    <xs:sequence>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productName" type="xs:string" minOccurs="0"/>
+      <xs:element name="daysFree" type="xs:int" minOccurs="1"/>
+      <xs:element name="patientCount" type="xs:double" minOccurs="1"/>
+      <xs:element name="amount" type="api:WSAmount" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSImageType">
+    <xs:sequence>
+      <xs:element name="contentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="data" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSProductArrangement">
+    <xs:sequence>
+      <xs:element name="displayConfigElements" type="api:WSDisplayConfigElement" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="context" type="api:WSProductArrangementContext" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="productType" type="api:WSRentalProductType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WSProductArrangementContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneTouchTV"/>
+      <xs:enumeration value="OneTouchPhone"/>
+      <xs:enumeration value="OneTouchPremium"/>
+      <xs:enumeration value="OneTouchRentalViewCurrentServices"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WSProductUsage">
+    <xs:sequence>
+      <xs:element name="stbCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="patientCount" type="xs:double" minOccurs="0"/>
+      <xs:element name="usageCount" type="xs:double" minOccurs="0"/>
+      <xs:element name="penetrationPercentage" type="xs:double" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+      <xs:element name="recordDate" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSRentalProduct">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="defaultTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="descriptionForDisplay" type="xs:string" minOccurs="0"/>
+      <xs:element name="legacyProductId" type="xs:string" minOccurs="0"/>
+      <xs:element name="longTitleForDisplay" type="xs:string" minOccurs="0"/>
+      <xs:element name="productType" type="api:WSRentalProductType" minOccurs="0"/>
+      <xs:element name="vendorId" type="xs:long" minOccurs="0"/>
+      <xs:element name="coveredProduct" type="api:WSRentalProduct" minOccurs="0"/>
+      <xs:element name="availableStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="availableEndDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="amount" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="allowCSRCredit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="contentResourceProductLinkId" type="xs:string" minOccurs="0"/>
+      <xs:element name="contentResourcePackageLinkId" type="xs:string" minOccurs="0"/>
+      <xs:element name="disclaimerContentName" type="xs:string" minOccurs="0"/>
+      <xs:element name="tax" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="freeNursingUnits" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WSRentalProductType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TV"/>
+      <xs:enumeration value="PHONE"/>
+      <xs:enumeration value="PREMIUM"/>
+      <xs:enumeration value="NONE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WSRentalServiceEvent">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="csrName" type="xs:string" minOccurs="0"/>
+      <xs:element name="eventSubType" type="api:rentalServiceEventSubType" minOccurs="0"/>
+      <xs:element name="eventType" type="api:rentalServiceEventType" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="transactionType" type="api:WSRentalTransactionType" minOccurs="0"/>
+      <xs:element name="product" type="api:WSRentalProduct" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSRentalTransaction">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="bed" type="xs:string" minOccurs="0"/>
+      <xs:element name="amount" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="confirmationNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="csrFirstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="csrId" type="xs:long" minOccurs="0"/>
+      <xs:element name="csrLastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+      <xs:element name="orderDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="patientId" type="xs:long" minOccurs="0"/>
+      <xs:element name="product" type="api:WSRentalProduct" minOccurs="0"/>
+      <xs:element name="productAmount" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="productName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productType" type="api:WSRentalProductType" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:int" minOccurs="1"/>
+      <xs:element name="room" type="xs:string" minOccurs="0"/>
+      <xs:element name="stbId" type="xs:long" minOccurs="1"/>
+      <xs:element name="transactionType" type="api:WSRentalTransactionType" minOccurs="0"/>
+      <xs:element name="tax" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="0"/>
+      <xs:element name="nursingUnitName" type="xs:string" minOccurs="0"/>
+      <xs:element name="csrName" type="xs:string" minOccurs="0"/>
+      <xs:element name="expireDate" type="xs:dateTime" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[This expire date does not take into account cumulative purchases. To]]>
+<![CDATA[see that information you need to run the authorized rooms report.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="patient" type="api:WSPatient" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSRentalTransactionSummary">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="product" type="api:WSRentalProduct" minOccurs="0"/>
+      <xs:element name="productName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productType" type="api:WSRentalProductType" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:int" minOccurs="1"/>
+      <xs:element name="quantitySum" type="xs:int" minOccurs="1"/>
+      <xs:element name="transactionCount" type="xs:int" minOccurs="1"/>
+      <xs:element name="hospitalId" type="xs:long" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WSRentalTransactionSummaryGroupBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ProductType"/>
+      <xs:enumeration value="ProductName"/>
+      <xs:enumeration value="NameAndQuantity"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WSRentalTransactionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CreditCard"/>
+      <xs:enumeration value="Cash"/>
+      <xs:enumeration value="Free"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WSServiceAuditEvent">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="daysBilled" type="xs:long" minOccurs="1"/>
+      <xs:element name="productAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="productTax" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="productTotal" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="amountBilled" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="estimatedTotalBillAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="cumulativeServiceTime" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="freeDays" type="xs:int" minOccurs="0"/>
+      <xs:element name="gap" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSServiceStatus">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="end" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="eventId" type="xs:long" minOccurs="0"/>
+      <xs:element name="start" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="product" type="api:WSRentalProduct" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WSSupportedCurrency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="USD"/>
+      <xs:enumeration value="CAD"/>
+      <xs:enumeration value="MXN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="WSUnbilledServiceRecord">
+    <xs:sequence>
+      <xs:element name="stb" type="api:WSInstalledSTB" minOccurs="0"/>
+      <xs:element name="accountId" type="xs:long" minOccurs="1"/>
+      <xs:element name="product" type="api:WSRentalProduct" minOccurs="0"/>
+      <xs:element name="serviceStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="daysBilled" type="xs:int" minOccurs="1"/>
+      <xs:element name="unbilledDays" type="xs:int" minOccurs="1"/>
+      <xs:element name="taxSum" type="api:WSAmount" minOccurs="0"/>
+      <xs:element name="amountSum" type="api:WSAmount" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>  
+
+  <!-- SURVEY -->
+  <xs:element name="WSAnswer" type="api:WSAnswer"/>
+  <xs:element name="WSQuestion" type="api:WSQuestion"/>
+  <xs:element name="WSQuestionAnswer" type="api:WSQuestionAnswer"/>
+  <xs:element name="WSSurvey" type="api:WSSurvey"/>
+  <xs:element name="WSSurveyAction" type="api:WSSurveyAction"/>
+  <xs:element name="WSSurveyResponse" type="api:WSSurveyResponse"/>
+  <xs:complexType name="WSAnswer">
+    <xs:sequence>
+      <xs:element name="answerText" type="xs:string" minOccurs="0"/>
+      <xs:element name="videoIdentity" type="xs:long" minOccurs="0"/>
+      <xs:element name="branchDestination" type="xs:string" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="sequence" type="xs:int" minOccurs="1"/>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSQuestion">
+    <xs:sequence>
+      <xs:element name="resourceType" type="xs:string" minOccurs="0"/>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="surveyIdentity" type="xs:long" minOccurs="1"/>
+      <xs:element name="required" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="pageNumber" type="xs:long" minOccurs="1"/>
+      <xs:element name="questionCategory" type="xs:string" minOccurs="0"/>
+      <xs:element name="questionText" type="xs:string" minOccurs="0"/>
+      <xs:element name="questionType" type="xs:string" minOccurs="0"/>
+      <xs:element name="sequence" type="xs:int" minOccurs="1"/>
+      <xs:element name="answers" type="api:WSAnswer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSQuestionAnswer">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="text" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSurvey">
+    <xs:sequence>
+      <xs:element name="identity" type="xs:long" minOccurs="1"/>
+      <xs:element name="contentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="contentIdentity" type="xs:long" minOccurs="1"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="frequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="imageName" type="xs:string" minOccurs="0"/>
+      <xs:element name="groupName" type="xs:string" minOccurs="0"/>
+      <xs:element name="questions" type="api:WSQuestion" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSurveyAction">
+    <xs:sequence>
+      <xs:element name="action" type="xs:string" minOccurs="0"/>
+      <xs:element name="actionNumber" type="xs:long" minOccurs="1"/>
+      <xs:element name="surveyQuestionNumber" type="xs:long" minOccurs="1"/>
+      <xs:element name="questionType" type="xs:string" minOccurs="0"/>
+      <xs:element name="questionText" type="xs:string" minOccurs="0"/>
+      <xs:element name="isQuestionRequired" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="promotionText" type="xs:string" minOccurs="0"/>
+      <xs:element name="canSubmitOnThisAction" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="isLastSurveyQuestion" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="isFirstSurveyQuestion" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="hasPreviousSurveyAction" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="availableAnswers" type="api:WSQuestionAnswer" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="specifiedAnswers" type="api:WSQuestionAnswer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WSSurveyResponse">
+    <xs:sequence>
+      <xs:element name="answerCount" type="xs:int" minOccurs="1"/>
+      <xs:element name="questionText" type="xs:string" minOccurs="0"/>
+      <xs:element name="responseText" type="xs:string" minOccurs="0"/>
+      <xs:element name="percentOfQuestion" type="xs:double" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>  
+</xs:schema>

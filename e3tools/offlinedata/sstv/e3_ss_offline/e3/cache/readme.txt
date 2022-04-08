@@ -1,0 +1,1 @@
+This folder is for offline contents (tv channels)

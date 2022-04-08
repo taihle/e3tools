@@ -1,0 +1,163 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="e3tools.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TvStbs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Servers" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ActiveServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ActiveStb" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VigoUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VigoPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VigoServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://vpn-portal.allentek.net</Value>
+    </Setting>
+    <Setting Name="VigoServers" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;https://stage-portal.allentek.com&lt;/string&gt;
+  &lt;string xsi:nil="true" /&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="WSHostPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">nextgen.local:8889</Value>
+    </Setting>
+    <Setting Name="WSHostPorts" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;nextgen.local:8889&lt;/string&gt;
+  &lt;string&gt;localhost:8889&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="WSRemoteUrls" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;http://nextgen.local/e3/&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="LogsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/var/www/html/procentric/log/logs/</Value>
+    </Setting>
+    <Setting Name="LogsPaths" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;/opt/e3/e3ws/logs/&lt;/string&gt;
+  &lt;string&gt;/var/www/html/procentric/log/logs/&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ZipContentPaths" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;C:\Dev\E3\branches\e3_lgzip&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="LastOpenFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/opt/e3/e3ws/</Value>
+    </Setting>
+    <Setting Name="LastOpenFiles" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;/opt/e3/e3ws/&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ZipSelectedHospitals" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ZipSelectedPlatforms" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ZipOutputLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\e3offline</Value>
+    </Setting>
+    <Setting Name="ZipOutputLocations" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ZipToolCmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\tools\7-zip\7z.exe</Value>
+    </Setting>
+    <Setting Name="ZipToolCmds" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;c:\tools\7-zip\7z.exe&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="FirmwareUrls" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;http://nextgen.local/procentric/sstz/firmware/NF693-TIZEN/T-KTMAKUCB_1020.5.json&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="GridViewColumns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[{"header":"Room/Bed","sort":"Name"},{"header":"Status","sort":"Status"},{"header":"MacId","sort":"MacId"},{"header":"IP","sort":"Ip"},{"header":"Last Beat","sort":"InstalledStb.lastBeat"},{"header":"Nursing Unit","sort":"InstalledStb.nursingUnit"},{"header":"E3 Version","sort":"InstalledStb.clientVersion"},{"header":"Firmware","sort":"InstalledStb.hwFirmwareVersion"},{"header":"Model","sort":"InstalledStb.hwModel"}]</Value>
+    </Setting>
+    <Setting Name="GridViewColumnsDefault" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">[{'header':'Room/Bed','sort':'Name'},{'header':'Status','sort':'Status'},{'header':'MacId','sort':'MacId'},{'header':'IP','sort':'Ip'},{'header':'Last Beat','sort':'InstalledStb.lastBeat'},{'header':'Nursing Unit','sort':'InstalledStb.nursingUnit'},{'header':'E3 Version','sort':'InstalledStb.clientVersion'},{'header':'Firmware','sort':'InstalledStb.hwFirmwareVersion'},{'header':'Model','sort':'InstalledStb.hwModel'}]</Value>
+    </Setting>
+    <Setting Name="HospitalDefaultChannelWardIds" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="GenerateChannelListForWardIds" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="OfflineConfigs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WSRemoteLogConfigs" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;{"level": 5, "wslog":"nextgen.local:8887"}&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="WSRemoteBEUrls" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;https://vpn-portal.allentek.net&lt;/string&gt;
+  &lt;string&gt;https://portal.allentek.com&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="WSRemoteAlerts" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;[{"startTime":"04/24/2016 22:00:00 -0700", "stopTime": "04/25/2016 15:00:00 -0700", "messageTitle": "test js", "messageText": "test js performance", "displayAlertType":"Scrollable"}]&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="WSRemoteTVMsg" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;&amp;lt;SDAP/1.0&amp;gt;SERVER 100 SYSTEM TEST ACK=YES &amp;lt;/SDAP/1.0&amp;gt;&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ZipVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3.0.1</Value>
+    </Setting>
+    <Setting Name="OfflineZipDocument" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ZipSelectedHospitalId" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AppUpdateUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://nextgen.local/e3tools</Value>
+    </Setting>
+    <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LastSentRemoteCmds" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;screensaver&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

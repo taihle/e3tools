@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e3tools", "e3tools\e3tools.csproj", "{1193E288-BCAD-4034-A3CF-FB694136C5C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e3lib", "e3lib\e3lib.csproj", "{57B73BFF-A58A-4606-AA0C-8ED020D98B63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1193E288-BCAD-4034-A3CF-FB694136C5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1193E288-BCAD-4034-A3CF-FB694136C5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1193E288-BCAD-4034-A3CF-FB694136C5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1193E288-BCAD-4034-A3CF-FB694136C5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B73BFF-A58A-4606-AA0C-8ED020D98B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B73BFF-A58A-4606-AA0C-8ED020D98B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B73BFF-A58A-4606-AA0C-8ED020D98B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B73BFF-A58A-4606-AA0C-8ED020D98B63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {356FD113-23F3-45C4-9F81-5969863AE78A}
+	EndGlobalSection
+EndGlobal
